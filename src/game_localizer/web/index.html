@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="th">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Game Localizer</title><link rel="stylesheet" href="/app.css"><script src="/app.js" defer></script></head>
-<body>
+<body class="editor-view">
 <div class="shell">
   <main>
     <div class="topbar"><strong class="app-name">Game Localizer</strong><nav class="primary-tabs" aria-label="เมนูหลัก"><button data-page="overview">ภาพรวม</button><button data-page="editor" class="active" aria-current="page">ข้อความ</button></nav><span class="project-chip" id="projectTitle">กำลังเปิดโปรเจกต์…</span></div>
@@ -18,7 +18,7 @@
     <section id="page-editor" class="page editor-page">
       <div class="filterbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="ค้นอังกฤษ ไทย หรือรหัสข้อความ" aria-label="ค้นข้อความ"><kbd>Ctrl K</kbd></label><select id="resourceFilter" aria-label="ชุดทรัพยากร"><option value="all">ทุกทรัพยากร</option></select><select id="statusFilter" aria-label="สถานะ"><option value="all">ทุกสถานะ</option><option value="draft">ฉบับร่าง</option><option value="reviewed">ตรวจแล้ว</option><option value="untranslated">ยังไม่แปล</option><option value="issues">ต้องตรวจรูปแบบ</option></select></div>
       <div class="workbench">
-        <div class="line-list"><div class="list-heading"><strong>รายการข้อความ <span id="resultCount"></span></strong><select id="groupFilter" aria-label="หมวดข้อความ"><option value="all">ทุกหมวด</option></select></div><div id="entryList" class="entries" aria-label="รายการข้อความ"></div><div class="pagination"><span id="pageRange">0 รายการ</span><div><button id="prevPage" class="icon-button" aria-label="หน้าก่อน">‹</button><button id="nextPage" class="icon-button" aria-label="หน้าถัดไป">›</button></div></div></div>
+        <div class="line-list"><div class="list-heading"><strong>รายการข้อความ <span id="resultCount"></span></strong><select id="groupFilter" aria-label="หมวดข้อความ"><option value="all">ทุกหมวด</option></select></div><div id="entryList" class="entries" role="region" tabindex="0" aria-label="รายการข้อความ เลื่อนด้วยล้อเมาส์หรือ Page Up และ Page Down"></div><div class="pagination"><span id="pageRange">0 รายการ</span><div><button id="prevPage" class="icon-button" aria-label="หน้าก่อน">‹</button><button id="nextPage" class="icon-button" aria-label="หน้าถัดไป">›</button></div></div></div>
         <article class="entry-editor" id="entryEditor"><div class="empty-editor"><span>≡</span><h2>เลือกข้อความเพื่อเริ่มแก้ไข</h2><p>ต้นฉบับ คำแปล และบริบทจะแสดงที่นี่</p></div></article>
       </div>
     </section>
@@ -37,4 +37,5 @@
 
 <dialog id="importDialog"><form id="importForm"><div class="dialog-heading"><h2>นำเข้าไฟล์ข้อความ</h2><button type="button" class="icon-button" data-close="importDialog" aria-label="ปิด">×</button></div><p>รองรับ CSV ที่ส่งออกจากเครื่องมือของเอนจิน ตรวจจับคอลัมน์ให้อัตโนมัติและปรับได้</p><label>ไฟล์ CSV<input id="importFile" type="file" accept=".csv" required></label><label>เอนจิน<select id="importEngine"><option value="generic">ทั่วไป</option><option value="unreal">Unreal Engine</option><option value="unity">Unity</option><option value="godot">Godot</option></select></label><div class="columns"><label>รหัสข้อความ<select id="idColumn" required></select></label><label>ต้นฉบับ<select id="sourceColumn" required></select></label></div><label>คอลัมน์คำแปล<input id="targetColumn" value="target" required></label><div class="dialog-actions"><button type="button" class="button" data-close="importDialog">ยกเลิก</button><button type="submit" class="button primary">นำเข้าเป็นสำเนา</button></div></form></dialog>
 <dialog id="reviewDialog"><form id="reviewForm"><div class="dialog-heading"><h2>ตรวจรับคำแปล</h2><button type="button" class="icon-button" data-close="reviewDialog" aria-label="ปิด">×</button></div><p>ยืนยันความหมาย บริบท และรูปแบบแล้ว การบันทึกทั่วไปยังเป็นฉบับร่าง</p><label>ผู้ตรวจ<input id="reviewer" required placeholder="ชื่อผู้ตรวจ"></label><label>บันทึกการตรวจรับ<textarea id="reviewNotes" required rows="3" placeholder="ตรวจฉากและหลักฐานใดแล้วบ้าง"></textarea></label><div class="dialog-actions"><button type="button" class="button" data-close="reviewDialog">ยกเลิก</button><button class="button primary" type="submit">ยืนยันตรวจรับ</button></div></form></dialog>
+<dialog id="unsavedDialog" aria-labelledby="unsavedTitle"><h2 id="unsavedTitle">ยังมีการแก้ไขที่ไม่บันทึก</h2><p>กลับไปบันทึกก่อน หรือทิ้งเฉพาะการแก้ไขที่ยังไม่บันทึกเพื่อไปต่อ</p><div class="dialog-actions"><button class="button" data-close="unsavedDialog">กลับไปแก้</button><button class="button" id="discardChanges">ทิ้งการแก้ไขแล้วไปต่อ</button></div></dialog>
 </body></html>

@@ -1,4 +1,4 @@
-# GUI preview — 0.2.0
+# GUI preview — 0.2.1
 
 The first GUI is an offline browser application served by Python on `127.0.0.1`, with no external frontend dependencies or automatic AI calls. It is inspired by Microsoft's [NavigationView guidance](https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/navigationview); it is not a native WinUI executable.
 
@@ -15,6 +15,10 @@ Alternatively, double-click `Start-GUI.cmd` in the source checkout. Leave its se
 ## Two primary pages
 
 **Overview** shows progress and clickable resources, plus AI batch preparation. **Text** combines search, filters and editing. Context opens beside the selected text in a dialog; export is a header action. There are no separate Context, AI or Export navigation pages. “Save and next” saves changes and advances; unchanged reviewed text is not downgraded.
+
+On desktop, the text list and editor scroll independently. The list heading and pagination stay visible, and the list accepts Page Up, Page Down, Home and End when focused. On narrow screens the editor follows the bounded list vertically. Unsaved edits use an in-app discard dialog; cancelling preserves the edit. Browser reload/close still uses the browser's own unsaved-change warning.
+
+The layout follows [Fluent 2 grouping and reflow guidance](https://fluent2.microsoft.design/layout), [compact persistent controls](https://www.nngroup.com/articles/sticky-headers/), and [pagination landmarks for task-focused lists](https://www.nngroup.com/articles/infinite-scrolling-tips/). See [GUI QA](GUI_QA.md) for verification and limits.
 
 ## Work through one scene at a time
 

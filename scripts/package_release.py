@@ -16,7 +16,7 @@ for path in files:
     key_marker = "BEGIN " + "PRIVATE KEY"
     if local_path_marker in content or key_marker in content:
         raise SystemExit(f"Local path/private key marker in source: {path.name}")
-destination = root / "dist" / "paperx-ai-game-localizer-0.2.0-source.zip"
+destination = root / "dist" / "paperx-ai-game-localizer-0.2.1-source.zip"
 destination.parent.mkdir(exist_ok=True)
 with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(set(files)):

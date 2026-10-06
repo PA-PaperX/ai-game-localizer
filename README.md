@@ -2,7 +2,7 @@
 
 An offline, engine-independent text workflow for AI-assisted game localization: project brief → resource import → scene research with evidence → translation draft → validation → editorial review → staged export → engine-specific build and runtime verification.
 
-เครื่องมือช่วยทำงานแปลเกมกับ AI โดย PaperX รุ่น **0.2.0** ใช้ Python 3.10 ขึ้นไป ไม่มี API key และไม่ส่งข้อความไปบริการออนไลน์เอง ใช้กับ AI ที่อ่านไฟล์ JSON ได้ รวมถึงผู้ช่วยที่ทำงานใน repository
+เครื่องมือช่วยทำงานแปลเกมกับ AI โดย PaperX รุ่น **0.2.1** ใช้ Python 3.10 ขึ้นไป ไม่มี API key และไม่ส่งข้อความไปบริการออนไลน์เอง ใช้กับ AI ที่อ่านไฟล์ JSON ได้ รวมถึงผู้ช่วยที่ทำงานใน repository
 
 ## What works today
 
@@ -17,7 +17,7 @@ One project JSON represents one resource. Keep separate projects per resource/la
 
 ## Install and quick start
 
-### GUI preview (0.2.0)
+### GUI preview (0.2.1)
 
 After installation, run `game-localizer-gui --workspace work/gui`, or double-click **Start-GUI.cmd** in the source checkout. The editor opens in your local browser with a NavigationView-inspired two-tab navigation, 50-entry pagination, English/Thai/key search, source-line separation, draft history, scene evidence, AI batches and reviewed CSV export. It runs offline; AI research and translation are performed by the assistant you choose.
 

@@ -13,15 +13,15 @@ Generated from project sources at 2026-10-06T02:01:54.758Z.
 
 ## Sources
 
-- Tokens: None detected
-- Components: None detected
+- Tokens: src/game_localizer/web/app.css
+- Components: src/game_localizer/web/index.html and app.js
 - Assets: None detected
 - Instructions: AGENTS.md
 
 ## Components
 
 - Installed: None detected
-- Preferred primitives: None detected
+- Preferred primitives: semantic HTML, native form controls and dialogs
 
 ## Tokens
 
@@ -43,3 +43,11 @@ Generated from project sources at 2026-10-06T02:01:54.758Z.
 - Research scene evidence before drafting; 50 entries per page.
 - Local browser preview; staged CSV export, no installed-game writes.
 - Microsoft documentation is the user-provided design reference; 21st search required unavailable sign-in.
+- Desktop list and editor scroll independently; list heading and pagination remain visible. Narrow layouts stack the editor below the bounded list.
+- In-app unsaved confirmation preserves drafts on cancel; modal feedback replaces earlier errors after success.
+
+## Professional references
+
+- [Fluent 2 layout](https://fluent2.microsoft.design/layout): spacing, grouping and reflow.
+- [Nielsen Norman Group: sticky headers](https://www.nngroup.com/articles/sticky-headers/): keep persistent controls compact.
+- [Nielsen Norman Group: infinite scrolling](https://www.nngroup.com/articles/infinite-scrolling-tips/): pagination supports landmarks and refinding in task-focused lists.

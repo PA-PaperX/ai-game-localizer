@@ -82,7 +82,9 @@
     "CSV column detection is extraction-independent",
     "21st catalog search unavailable without sign-in; user Microsoft reference used directly",
     "User requested only Overview and Text; utility workflows moved to dialogs",
-    "Resource summary opens filtered editor; save-and-next does not demote unchanged reviewed entries"
+    "Resource summary opens filtered editor; save-and-next does not demote unchanged reviewed entries",
+    "Desktop list and editor scroll independently; list heading and pagination stay visible",
+    "Use in-app discard dialog for unsaved changes and replace stale modal feedback"
   ],
   "evidence": [
     {
@@ -92,6 +94,18 @@
     {
       "fact": "User requests NavigationView design",
       "source": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/navigationview"
+    },
+    {
+      "fact": "Spacing, grouping and list/detail reflow",
+      "source": "https://fluent2.microsoft.design/layout"
+    },
+    {
+      "fact": "Persistent controls should remain compact",
+      "source": "https://www.nngroup.com/articles/sticky-headers/"
+    },
+    {
+      "fact": "Pagination provides landmarks for task-focused lists",
+      "source": "https://www.nngroup.com/articles/infinite-scrolling-tips/"
     }
   ],
   "generatedAt": "2026-10-06T02:01:54.758Z"
