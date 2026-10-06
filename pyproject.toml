@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "paperx-ai-game-localizer"
-version = "0.1.1"
+version = "0.2.0"
 description = "Offline, review-gated localization workflows for AI assistants and game modders"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -20,6 +20,10 @@ fonts = ["fonttools>=4.50"]
 
 [project.scripts]
 game-localizer = "game_localizer.cli:main"
+game-localizer-gui = "game_localizer.gui:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+game_localizer = ["web/*.html", "web/*.css", "web/*.js"]

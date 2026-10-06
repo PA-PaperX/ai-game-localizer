@@ -89,6 +89,14 @@ def entry(key, source):
             "target": None, "status": "untranslated", "context": {}, "review": None}
 
 
+def validate_for_engine(source, target, engine):
+    if engine == 'unreal':
+        from .formatters import unreal_validate
+        unreal_validate(source, target, validate, LocalizerError)
+    else:
+        validate(source, target)
+
+
 def leaves(value, pointer=""):
     if isinstance(value, str):
         yield pointer, value
@@ -184,7 +192,7 @@ def load_project(path):
         if e["status"] == "reviewed":
             if not (e.get("review") or {}).get("reviewer"):
                 raise LocalizerError("Reviewed entry lacks reviewer")
-            validate(e["source"], e["target"])
+            validate_for_engine(e["source"], e["target"], project['engine'])
     return project
 
 
@@ -227,7 +235,7 @@ def apply(args):
             raise LocalizerError("Batch source changed")
         if e["status"] == "reviewed":
             raise LocalizerError("Batch is stale: an entry has already been reviewed")
-        validate(e["source"], item["target"])
+        validate_for_engine(e["source"], item["target"], p['engine'])
         context = item.get("context", e["context"])
         if not isinstance(context, dict):
             raise LocalizerError("Context must be an object")
@@ -248,7 +256,7 @@ def review(args):
         e = index[key]
         if e["status"] != "draft":
             raise LocalizerError(f"Review requires a draft: {key}")
-        validate(e["source"], e["target"])
+        validate_for_engine(e["source"], e["target"], p['engine'])
         e.update(status="reviewed", review={"reviewer": args.reviewer, "notes": args.notes})
     save(args.project, p)
     return {"reviewed": len(requested)}

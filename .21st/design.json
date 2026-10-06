@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "project": {
+    "name": "ai-game-localizer",
+    "productType": "Local game localization editor",
+    "stack": [
+      "Python standard-library HTTP server",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/game_localizer/web/app.css"
+    ],
+    "components": [
+      "src/game_localizer/web/index.html",
+      "src/game_localizer/web/app.js"
+    ],
+    "assets": [],
+    "instructions": [
+      "AGENTS.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "canvas": "#f3f3f3",
+      "surface": "#ffffff",
+      "text": "#202020",
+      "muted": "#666666",
+      "accent": "#0067c0"
+    },
+    "typography": {
+      "family": "Segoe UI, Leelawadee UI, Tahoma, sans-serif",
+      "translationSize": "17px",
+      "translationLineHeight": 1.9
+    },
+    "spacing": {
+      "main": "24–28px"
+    },
+    "radius": {
+      "panels": "6px"
+    },
+    "shadows": {},
+    "motion": {
+      "reducedMotion": "Respect prefers-reduced-motion"
+    },
+    "density": "comfortable"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [
+      "semantic HTML",
+      "native inputs and dialogs"
+    ],
+    "patterns": [
+      "two primary tabs: overview and text",
+      "paged text list with detail editor",
+      "contextual dialogs for evidence, AI and export"
+    ]
+  },
+  "constraints": {
+    "must": [
+      "Research scene context before drafting",
+      "Keep source and engine tokens immutable",
+      "Separate review from saving",
+      "Keep private game data outside source repository",
+      "Use Thai-friendly typography and keyboard focus"
+    ],
+    "avoid": [
+      "Game-specific voice assumptions in generic prompts",
+      "Automatic installed-game writes",
+      "Dense spreadsheets showing the entire corpus",
+      "Unverified citations"
+    ]
+  },
+  "decisions": [
+    "NavigationView-inspired local browser GUI; not native WinUI",
+    "50 entries per page; source and target adjacent",
+    "CSV column detection is extraction-independent",
+    "21st catalog search unavailable without sign-in; user Microsoft reference used directly",
+    "User requested only Overview and Text; utility workflows moved to dialogs",
+    "Resource summary opens filtered editor; save-and-next does not demote unchanged reviewed entries"
+  ],
+  "evidence": [
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    },
+    {
+      "fact": "User requests NavigationView design",
+      "source": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/navigationview"
+    }
+  ],
+  "generatedAt": "2026-10-06T02:01:54.758Z"
+}

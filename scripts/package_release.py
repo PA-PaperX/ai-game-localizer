@@ -4,9 +4,9 @@ from pathlib import Path
 import zipfile
 
 root = Path(__file__).resolve().parents[1]
-files = [root / name for name in ("README.md", "AGENTS.md", "CONTRIBUTING.md", "LICENSE", "pyproject.toml", ".gitignore")]
-allowed = {".py", ".md", ".json", ".csv", ".yml"}
-for folder in ("src", "tests", "examples", "docs", "scripts", ".github"):
+files = [root / name for name in ("README.md", "AGENTS.md", "CONTRIBUTING.md", "LICENSE", "pyproject.toml", ".gitignore", "Start-GUI.cmd")]
+allowed = {".py", ".md", ".json", ".csv", ".yml", ".html", ".css", ".js", ".cmd"}
+for folder in ("src", "tests", "examples", "docs", "scripts", ".github", ".21st"):
     files.extend(p for p in (root / folder).rglob("*") if p.is_file() and p.suffix in allowed and "__pycache__" not in p.parts)
 for path in files:
     if path.is_symlink() or not path.resolve().is_relative_to(root):
@@ -16,7 +16,7 @@ for path in files:
     key_marker = "BEGIN " + "PRIVATE KEY"
     if local_path_marker in content or key_marker in content:
         raise SystemExit(f"Local path/private key marker in source: {path.name}")
-destination = root / "dist" / "paperx-ai-game-localizer-0.1.1-source.zip"
+destination = root / "dist" / "paperx-ai-game-localizer-0.2.0-source.zip"
 destination.parent.mkdir(exist_ok=True)
 with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(set(files)):
