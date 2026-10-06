@@ -2,8 +2,11 @@ import contextlib
 import csv
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 import unittest
 from unittest.mock import patch
 
@@ -220,6 +223,13 @@ class Workflow(unittest.TestCase):
         save(brief, ["not a project brief"])
         self.run_cli("batch", self.project, self.batch, "--brief", brief, code=2)
         self.assertFalse(self.batch.exists())
+
+    def test_demo_with_legacy_console_encoding(self):
+        root = Path(__file__).resolve().parents[1]
+        env = dict(os.environ, PYTHONIOENCODING="cp1252", PYTHONUTF8="0", PYTHONPATH=str(root / "src"))
+        result = subprocess.run([sys.executable, str(root / "examples/demo.py")], cwd=root, env=env, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", errors="replace"))
+        self.assertIn("กำลังโหลด", result.stdout.decode("utf-8"))
 
 
 if __name__ == "__main__":

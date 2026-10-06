@@ -417,6 +417,11 @@ def parser():
 
 
 def main(argv=None):
+    # Emit UTF-8 JSON/text even when Windows redirects a legacy code-page stream.
+    # In-memory test streams do not expose reconfigure().
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     try:
         args = parser().parse_args(argv)
         if getattr(args, "limit", 1) <= 0 or getattr(args, "max_files", 1) <= 0:
