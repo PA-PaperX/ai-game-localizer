@@ -1,0 +1,3 @@
+Key,Id,English(en),Thai(th),Shared Comments
+door.open,100,Open {door},,Synthetic door prompt
+system.loading,101,Loading...,,Synthetic loading text

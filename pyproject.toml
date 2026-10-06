@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paperx-ai-game-localizer"
+version = "0.1.1"
+description = "Offline, review-gated localization workflows for AI assistants and game modders"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "PaperX"}]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/PA-PaperX/ai-game-localizer"
+Issues = "https://github.com/PA-PaperX/ai-game-localizer/issues"
+
+[project.optional-dependencies]
+fonts = ["fonttools>=4.50"]
+
+[project.scripts]
+game-localizer = "game_localizer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

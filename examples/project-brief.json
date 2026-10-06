@@ -1,0 +1,14 @@
+{
+  "game": "REPLACE_WITH_GAME_TITLE",
+  "build": "REPLACE_WITH_EDITION_AND_BUILD",
+  "source_language": "en",
+  "target_language": "th",
+  "scope": ["dialogue", "menus", "tutorial"],
+  "audience": "Set the intended audience for this project",
+  "available_evidence": [],
+  "research_requirements": "Locate scene-specific evidence before drafting; defer meaning-critical uncertainty",
+  "glossary": {},
+  "character_voice_guide": {},
+  "style": "Match this game's genre, relationships and intensity; no default pronouns or profanity",
+  "credit": "Set translator credit only if the project owner requests it"
+}

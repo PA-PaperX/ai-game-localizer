@@ -1,0 +1,8 @@
+{
+  "dialogue": {
+    "welcome": "Welcome, {name}.",
+    "warning": "The door is locked."
+  },
+  "internal_id": "DO_NOT_TRANSLATE",
+  "version": 1
+}
